@@ -127,11 +127,11 @@ export default function App() {
   const [expandedIdea, setExpandedIdea] = useState(null);
 
   return (
-    <div className="min-h-screen text-white" style={{ background: 'linear-gradient(180deg, #0f172a 0%, #020617 100%)' }}>
+    <div className="min-h-screen bg-[#0a0f1a] text-white">
       {/* Hero */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-purple-500/5" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-green-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
         
         <div className="relative max-w-6xl mx-auto px-6 pt-12 pb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -139,7 +139,7 @@ export default function App() {
             <span className="text-sm text-green-400 font-medium">Automation Services</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-3 bg-gradient-to-r from-white via-white to-slate-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-3 text-white">
             Fyne Workflows
           </h1>
           <p className="text-lg text-slate-400 text-center max-w-xl mx-auto mb-8">
@@ -190,10 +190,10 @@ export default function App() {
             <div
               key={idx}
               onClick={() => setExpandedIdea(expandedIdea === idx ? null : idx)}
-              className={`group bg-slate-900/50 backdrop-blur border rounded-2xl p-5 cursor-pointer transition-all ${
+              className={`group bg-slate-800/30 border rounded-2xl p-5 cursor-pointer transition-all ${
                 expandedIdea === idx 
                   ? 'border-slate-600 bg-slate-800/50' 
-                  : 'border-slate-800 hover:border-slate-700'
+                  : 'border-slate-700/50 hover:border-slate-600'
               }`}
             >
               <div className="flex items-start justify-between">
@@ -233,7 +233,7 @@ export default function App() {
       </div>
 
       {/* CTA Footer */}
-      <div className="border-t border-slate-800 bg-slate-900/50 backdrop-blur">
+      <div className="border-t border-slate-800 bg-slate-900/30">
         <div className="max-w-6xl mx-auto px-6 py-10 text-center">
           <h2 className="text-2xl font-bold mb-2">Ready to automate?</h2>
           <p className="text-slate-400 mb-6">Book a free call and let's find what's eating your time.</p>
