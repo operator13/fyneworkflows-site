@@ -127,11 +127,11 @@ export default function App() {
   const [expandedIdea, setExpandedIdea] = useState(null);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen text-white" style={{ background: 'linear-gradient(180deg, #0f172a 0%, #020617 100%)' }}>
       {/* Hero */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-purple-500/10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-green-500/20 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-purple-500/5" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-green-500/10 rounded-full blur-3xl" />
         
         <div className="relative max-w-6xl mx-auto px-6 pt-12 pb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
