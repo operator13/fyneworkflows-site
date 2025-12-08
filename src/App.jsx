@@ -127,13 +127,13 @@ export default function App() {
   const [expandedIdea, setExpandedIdea] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#0a0f1a] text-white">
+    <div className="min-h-screen bg-[#0a0f1a] text-white flex flex-col">
       {/* Hero */}
       <div className="relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
         <div className="absolute top-20 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
-        
-        <div className="relative max-w-6xl mx-auto px-6 pt-12 pb-8">
+
+        <div className="relative max-w-6xl mx-auto px-6 pt-16 pb-10">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-5 h-5 text-green-400" />
             <span className="text-sm text-green-400 font-medium">Automation Services</span>
@@ -147,7 +147,7 @@ export default function App() {
           </p>
 
           {/* Steps */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-6 sm:gap-12 mb-6 mx-auto w-fit">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-8 sm:gap-14 mb-8 mx-auto w-fit">
             {steps.map((step, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center font-bold text-sm`}>
@@ -165,16 +165,16 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 pb-8 w-full">
+      <div className="max-w-6xl mx-auto px-6 pb-12 w-full flex-1 flex flex-col">
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
           {opportunities.map((cat, idx) => (
             <button
               key={idx}
               onClick={() => { setSelectedCategory(idx); setExpandedIdea(null); }}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                selectedCategory === idx 
-                  ? 'bg-white text-slate-900 shadow-lg shadow-white/10' 
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-base font-medium transition-all ${
+                selectedCategory === idx
+                  ? 'bg-white text-slate-900 shadow-lg shadow-white/10'
                   : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-700/50'
               }`}
             >
@@ -185,21 +185,21 @@ export default function App() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 flex-1">
           {opportunities[selectedCategory].ideas.map((idea, idx) => (
             <div
               key={idx}
               onClick={() => setExpandedIdea(expandedIdea === idx ? null : idx)}
-              className={`group bg-slate-800/30 border rounded-2xl p-5 cursor-pointer transition-all ${
-                expandedIdea === idx 
-                  ? 'border-slate-600 bg-slate-800/50' 
+              className={`group bg-slate-800/30 border rounded-2xl p-6 cursor-pointer transition-all flex flex-col ${
+                expandedIdea === idx
+                  ? 'border-slate-600 bg-slate-800/50'
                   : 'border-slate-700/50 hover:border-slate-600'
               }`}
             >
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between flex-1">
                 <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <h3 className="font-semibold text-white text-lg">{idea.title}</h3>
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <h3 className="font-semibold text-white text-xl">{idea.title}</h3>
                     <span 
                       className="text-xs px-2.5 py-1 rounded-full font-semibold"
                       style={{ 
@@ -210,20 +210,20 @@ export default function App() {
                       {idea.revenue}
                     </span>
                   </div>
-                  <p className="text-slate-400 text-sm leading-relaxed">{idea.description}</p>
+                  <p className="text-slate-400 text-base leading-relaxed">{idea.description}</p>
                 </div>
-                <ChevronRight className={`w-5 h-5 text-slate-600 transition-transform flex-shrink-0 ml-3 ${expandedIdea === idx ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
+                <ChevronRight className={`w-5 h-5 text-slate-600 transition-transform flex-shrink-0 ml-4 ${expandedIdea === idx ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
               </div>
-              
+
               {expandedIdea === idx && (
-                <div className="mt-4 pt-4 border-t border-slate-700/50">
-                  <div className="text-sm">
+                <div className="mt-5 pt-5 border-t border-slate-700/50">
+                  <div className="text-base">
                     <span className="text-slate-500">Example: </span>
                     <span className="text-slate-300">{idea.example}</span>
                   </div>
-                  <div className="flex items-center gap-1 mt-3">
-                    <Clock className="w-3.5 h-3.5 text-slate-500" />
-                    <span className="text-xs text-slate-500">Effort: {idea.effort}</span>
+                  <div className="flex items-center gap-2 mt-4">
+                    <Clock className="w-4 h-4 text-slate-500" />
+                    <span className="text-sm text-slate-500">Effort: {idea.effort}</span>
                   </div>
                 </div>
               )}
@@ -234,29 +234,29 @@ export default function App() {
 
       {/* CTA Footer */}
       <div className="border-t border-slate-800 bg-slate-900/30">
-        <div className="max-w-6xl mx-auto px-6 py-10 text-center">
-          <h2 className="text-2xl font-bold mb-2">Ready to automate?</h2>
-          <p className="text-slate-400 mb-6">Book a free call and let's find what's eating your time.</p>
+        <div className="max-w-6xl mx-auto px-6 py-14 text-center">
+          <h2 className="text-3xl font-bold mb-3">Ready to automate?</h2>
+          <p className="text-slate-400 text-lg mb-8">Book a free call and let's find what's eating your time.</p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="https://calendly.com/fynebusinessllc/30min" 
-              target="_blank" 
+            <a
+              href="https://calendly.com/fynebusinessllc/30min"
+              target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all shadow-lg shadow-green-500/25 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all shadow-lg shadow-green-500/25 flex items-center justify-center gap-2 text-lg"
             >
               Book a Free Consultation
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </a>
-            <a 
-              href="mailto:fynebusinessllc@gmail.com" 
-              className="w-full sm:w-auto px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all border border-slate-700"
+            <a
+              href="mailto:fynebusinessllc@gmail.com"
+              className="w-full sm:w-auto px-10 py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all border border-slate-700 text-lg"
             >
               Email Me
             </a>
           </div>
-          
-          <p className="text-slate-600 text-sm mt-6">fynebusinessllc@gmail.com</p>
+
+          <p className="text-slate-600 text-sm mt-8">fynebusinessllc@gmail.com</p>
         </div>
       </div>
     </div>
