@@ -190,9 +190,9 @@ export default function App() {
             <div
               key={idx}
               onClick={() => setExpandedIdea(expandedIdea === idx ? null : idx)}
-              className={`group bg-slate-800/30 border rounded-2xl p-6 cursor-pointer transition-all relative ${
+              className={`group bg-slate-800/30 border rounded-2xl p-6 cursor-pointer transition-all ${
                 expandedIdea === idx
-                  ? 'border-slate-600 bg-slate-800/50 z-10'
+                  ? 'border-slate-600 bg-slate-800/50'
                   : 'border-slate-700/50 hover:border-slate-600'
               }`}
             >
@@ -216,7 +216,7 @@ export default function App() {
               </div>
 
               {expandedIdea === idx && (
-                <div className="mt-5 pt-5 border-t border-slate-700/50 bg-slate-800/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-2xl">
+                <div className="mt-5 pt-5 border-t border-slate-700/50">
                   <div className="text-base">
                     <span className="text-slate-500">Example: </span>
                     <span className="text-slate-300">{idea.example}</span>
@@ -232,8 +232,8 @@ export default function App() {
         </div>
       </div>
 
-      {/* CTA Footer */}
-      <div className="border-t border-slate-800 bg-slate-900/30">
+      {/* CTA Footer - Sticky */}
+      <div className="border-t border-slate-800 bg-slate-900/95 backdrop-blur-sm sticky bottom-0 z-40">
         <div className="max-w-6xl mx-auto px-6 py-14 text-center">
           <h2 className="text-3xl font-bold mb-3">Ready to automate?</h2>
           <p className="text-slate-400 text-lg mb-8">Book a free call and let's find what's eating your time.</p>
