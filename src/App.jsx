@@ -165,7 +165,7 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 pb-12 w-full flex-1 flex flex-col">
+      <div className="max-w-6xl mx-auto px-6 pb-12 md:pb-64 w-full flex-1 flex flex-col">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-3 mb-8">
           {opportunities.map((cat, idx) => (
@@ -232,8 +232,8 @@ export default function App() {
         </div>
       </div>
 
-      {/* CTA Footer - Sticky */}
-      <div className="border-t border-slate-800 bg-slate-900/95 backdrop-blur-sm sticky bottom-0 z-40">
+      {/* CTA Footer - Sticky on desktop only */}
+      <div className="border-t border-slate-800 bg-slate-900/95 backdrop-blur-sm md:sticky md:bottom-0 z-40">
         <div className="max-w-6xl mx-auto px-6 py-14 text-center">
           <h2 className="text-3xl font-bold mb-3">Ready to automate?</h2>
           <p className="text-slate-400 text-lg mb-8">Book a free call and let's find what's eating your time.</p>
