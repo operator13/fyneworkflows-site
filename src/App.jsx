@@ -185,24 +185,24 @@ export default function App() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 flex-1">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 flex-1 items-start content-start">
           {opportunities[selectedCategory].ideas.map((idea, idx) => (
             <div
               key={idx}
               onClick={() => setExpandedIdea(expandedIdea === idx ? null : idx)}
-              className={`group bg-slate-800/30 border rounded-2xl p-6 cursor-pointer transition-all flex flex-col ${
+              className={`group bg-slate-800/30 border rounded-2xl p-6 cursor-pointer transition-all relative ${
                 expandedIdea === idx
-                  ? 'border-slate-600 bg-slate-800/50'
+                  ? 'border-slate-600 bg-slate-800/50 z-10'
                   : 'border-slate-700/50 hover:border-slate-600'
               }`}
             >
-              <div className="flex items-start justify-between flex-1">
+              <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <h3 className="font-semibold text-white text-xl">{idea.title}</h3>
-                    <span 
+                    <span
                       className="text-xs px-2.5 py-1 rounded-full font-semibold"
-                      style={{ 
+                      style={{
                         backgroundColor: opportunities[selectedCategory].color + '15',
                         color: opportunities[selectedCategory].color
                       }}
@@ -216,7 +216,7 @@ export default function App() {
               </div>
 
               {expandedIdea === idx && (
-                <div className="mt-5 pt-5 border-t border-slate-700/50">
+                <div className="mt-5 pt-5 border-t border-slate-700/50 bg-slate-800/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-2xl">
                   <div className="text-base">
                     <span className="text-slate-500">Example: </span>
                     <span className="text-slate-300">{idea.example}</span>
