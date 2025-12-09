@@ -165,7 +165,7 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 pb-12 md:pb-64 w-full flex-1 flex flex-col">
+      <div className="max-w-6xl mx-auto px-6 pb-12 w-full flex-1 flex flex-col">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-3 mb-8">
           {opportunities.map((cat, idx) => (
