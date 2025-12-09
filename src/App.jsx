@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DollarSign, Clock, TrendingUp, Mail, Zap, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import { DollarSign, Clock, TrendingUp, Mail, Zap, ArrowRight, Sparkles } from 'lucide-react';
 
 const opportunities = [
   {
@@ -124,7 +124,6 @@ const steps = [
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(0);
-  const [expandedIdea, setExpandedIdea] = useState(null);
 
   return (
     <div className="min-h-screen bg-[#0a0f1a] text-white flex flex-col">
@@ -171,7 +170,7 @@ export default function App() {
           {opportunities.map((cat, idx) => (
             <button
               key={idx}
-              onClick={() => { setSelectedCategory(idx); setExpandedIdea(null); }}
+              onClick={() => setSelectedCategory(idx)}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl text-base font-medium transition-all ${
                 selectedCategory === idx
                   ? 'bg-white text-slate-900 shadow-lg shadow-white/10'
@@ -189,14 +188,9 @@ export default function App() {
           {opportunities[selectedCategory].ideas.map((idea, idx) => (
             <div
               key={idx}
-              onClick={() => setExpandedIdea(expandedIdea === idx ? null : idx)}
-              className={`group bg-slate-800/30 border rounded-2xl p-6 cursor-pointer transition-all ${
-                expandedIdea === idx
-                  ? 'border-slate-600 bg-slate-800/50'
-                  : 'border-slate-700/50 hover:border-slate-600'
-              }`}
+              className="group bg-slate-800/30 border border-slate-700/50 hover:border-slate-600 rounded-2xl p-6 transition-all"
             >
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <h3 className="font-semibold text-white text-xl">{idea.title}</h3>
@@ -212,28 +206,24 @@ export default function App() {
                   </div>
                   <p className="text-slate-400 text-base leading-relaxed">{idea.description}</p>
                 </div>
-                <ChevronRight className={`w-5 h-5 text-slate-600 transition-transform flex-shrink-0 ml-4 ${expandedIdea === idx ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
               </div>
 
-              {expandedIdea === idx && (
-                <div className="mt-5 pt-5 border-t border-slate-700/50">
-                  <div className="text-base">
-                    <span className="text-slate-500">Example: </span>
-                    <span className="text-slate-300">{idea.example}</span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-4">
-                    <Clock className="w-4 h-4 text-slate-500" />
-                    <span className="text-sm text-slate-500">Effort: {idea.effort}</span>
-                  </div>
+              <div className="pt-4 border-t border-slate-700/50">
+                <p className="text-sm text-slate-500 mb-2">
+                  <span className="text-slate-400">Example:</span> {idea.example}
+                </p>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-slate-600" />
+                  <span className="text-xs text-slate-600">Effort: {idea.effort}</span>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* CTA Footer - Sticky on desktop only */}
-      <div className="border-t border-slate-800 bg-slate-900/95 backdrop-blur-sm md:sticky md:bottom-0 z-40">
+      {/* CTA Footer */}
+      <div className="border-t border-slate-800 bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-6 py-14 text-center">
           <h2 className="text-3xl font-bold mb-3">Ready to automate?</h2>
           <p className="text-slate-400 text-lg mb-8">Book a free call and let's find what's eating your time.</p>
