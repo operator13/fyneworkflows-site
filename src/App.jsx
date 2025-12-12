@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DollarSign, Clock, TrendingUp, Mail, Zap, ArrowRight, Sparkles } from 'lucide-react';
+import { DollarSign, Clock, TrendingUp, Mail, Zap, ArrowRight, Sparkles, Database } from 'lucide-react';
 
 const opportunities = [
   {
@@ -111,6 +111,34 @@ const opportunities = [
         revenue: "Better deal flow",
         effort: "Medium",
         example: "Know when competitors raise money or companies need your service"
+      }
+    ]
+  },
+  {
+    category: "Data & Analytics",
+    color: "#06b6d4",
+    icon: Database,
+    ideas: [
+      {
+        title: "Data Pipeline Development",
+        description: "Build automated ETL pipelines that extract, transform, and load your data reliably at scale.",
+        revenue: "$3-10K/project",
+        effort: "Medium",
+        example: "Consolidate CRM, inventory, and sales data into a single source of truth"
+      },
+      {
+        title: "Dashboard & Reporting",
+        description: "Create real-time Grafana dashboards and automated reports that update themselves.",
+        revenue: "$2-5K/project",
+        effort: "Medium",
+        example: "Executive dashboard showing KPIs, trends, and alerts—refreshed hourly"
+      },
+      {
+        title: "Data Quality Monitoring",
+        description: "Automated checks that alert you when data issues arise before they impact decisions.",
+        revenue: "$500-2K/mo",
+        effort: "Low",
+        example: "Slack alerts when data completeness drops or anomalies are detected"
       }
     ]
   }
